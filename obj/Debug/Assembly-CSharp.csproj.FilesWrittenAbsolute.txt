@@ -40,3 +40,7 @@
 /Users/lucasrodrigues/Documents/Sourcetree/aMazen/Temp/bin/Debug/Assembly-CSharp.dll
 /Users/lucasrodrigues/Documents/Sourcetree/aMazen/obj/Debug/Assembly-CSharp.dll
 /Users/lucasrodrigues/Documents/Sourcetree/aMazen/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/viktorgustafsson/aMAZEn/aMAZEn/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/viktorgustafsson/aMAZEn/aMAZEn/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/viktorgustafsson/aMAZEn/aMAZEn/obj/Debug/Assembly-CSharp.dll
+/Users/viktorgustafsson/aMAZEn/aMAZEn/obj/Debug/Assembly-CSharp.dll.mdb
