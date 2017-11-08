@@ -51,10 +51,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\buttonSpeedy.cs" />
-     <Compile Include="Assets\CanvasData.cs" />
+     <Compile Include="Assets\buttonBallsy.cs" />
+     <Compile Include="Assets\buttonEasy.cs" />
+     <Compile Include="Assets\buttonHard.cs" />
+     <Compile Include="Assets\buttonQuit.cs" />
+     <Compile Include="Assets\DifficultySelect.cs" />
      <Compile Include="Assets\FullTiltBoogie\RotateFlareHolder.cs" />
+     <Compile Include="Assets\Scripts\buttonSpeedy.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\CanvasData.cs" />
      <Compile Include="Assets\Scripts\Flip.cs" />
      <Compile Include="Assets\Scripts\LoadScene.cs" />
      <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
