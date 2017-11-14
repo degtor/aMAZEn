@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Bomb.cs" />
      <Compile Include="Assets\buttonBallsy.cs" />
      <Compile Include="Assets\buttonEasy.cs" />
      <Compile Include="Assets\buttonHard.cs" />
