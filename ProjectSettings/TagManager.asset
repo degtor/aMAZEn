@@ -9,6 +9,7 @@ TagManager:
   - jumpPickUp
   - bombTrap
   - enemy
+  - menu
   layers:
   - Default
   - TransparentFX
