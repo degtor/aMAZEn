@@ -42,6 +42,12 @@ public class PlayerController : MonoBehaviour {
 	public AudioClip bombClip;
 	private AudioSource source;
 
+	// **
+	private bool gameIsOver;
+	public Text gameStatusText;
+	public GameObject gameOverPanel;
+
+
 	void Start ()
 	{
 		// Getting the player preferences
@@ -67,7 +73,9 @@ public class PlayerController : MonoBehaviour {
 		playerColor = GetComponent<Renderer>().material.color;
 
 		//source = GetComponent<AudioSource>();
-
+		// **
+		gameIsOver = false;
+		rb.transform
 	}
 
 	void FixedUpdate () 
@@ -75,7 +83,10 @@ public class PlayerController : MonoBehaviour {
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
 
-		SetGameTime ();
+		// **
+		if (gameIsOver == false) {
+			SetGameTime ();
+		}
 
 		Vector3 jumpAction = new Vector3 (0.0f, jump, 0.0f);
 		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
@@ -101,6 +112,37 @@ public class PlayerController : MonoBehaviour {
 			rb.velocity = Vector3.zero;
 		}
 			
+	}
+
+	// **
+
+	// Runs after the scene has been processed
+	void LateUpdate() {
+		if (rb.transform.position.y <= 0 && gameIsOver == false) {
+			GameOver ("lost");
+		} else if (Count >= number_of_coins) {
+			GameOver ("won");
+		}
+	}
+
+	// Runs once 
+	void Awake() {
+
+	}
+
+	void GameOver(string gameStatus){
+		gameIsOver = true;
+		timer = gameTimer;
+		Debug.Log(timer.ToString());
+
+		// Checking if the game has been won of lost
+		if (gameStatus == "won") {
+			gameStatusText.text = "You won!/nYou completed the maze in " + timer.ToString() + "s";
+		} else {
+			gameStatusText.text = "You lost!";
+		}
+
+		gameOverPanel.SetActive (true);
 	}
 
 	void OnTriggerEnter(Collider other) 
