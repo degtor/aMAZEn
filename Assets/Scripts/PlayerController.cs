@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 	private int speed;
 	private int jump;
 
-	static int number_of_coins = 20;
+	static int number_of_coins = 1;
 
 	// Variables related to player preferences
 	private int player;
@@ -16,13 +16,13 @@ public class PlayerController : MonoBehaviour {
 
 	// Set-up of player 1 (Speedy Ballzales) characteristics
 	static Color colorPlayerOne = Color.blue;
-	static int speedPlayerOne = 20;
-	static int jumpPlayerOne = 200;
+	static int speedPlayerOne = 10;
+	static int jumpPlayerOne = 90;
 
 	// Set-up of player 2 (Ballsy Jumper) characteristics
 	static Color colorPlayerTwo = Color.red;
-	static int speedPlayerTwo = 10;
-	static int jumpPlayerTwo = 400;
+	static int speedPlayerTwo = 5;
+	static int jumpPlayerTwo = 180;
 
 	private int Count;
 	public Rigidbody rb;
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
 	public Text youHaveSpeed;
 	public Text youHaveJump;
 	public Text countText;
-	public Text winText;
+	public Text healthText;
 
 	public AudioClip bombClip;
 	private AudioSource source;
@@ -45,11 +45,14 @@ public class PlayerController : MonoBehaviour {
 	// **
 	private bool gameIsOver;
 	public Text gameStatusText;
+	public Text score;
 	public GameObject gameOverPanel;
-
+	public AudioClip enemyClip;
+	public int health = 100;
 
 	void Start ()
 	{
+		health = 100;
 		// Getting the player preferences
 		difficulty = PlayerPrefs.GetInt ("difficulty");
 		player = PlayerPrefs.GetInt ("player");
@@ -61,7 +64,7 @@ public class PlayerController : MonoBehaviour {
 		displayTime.text = "";
 		Count = 0;
 		SetCountText();
-		winText.text = "";
+		healthText.text = "Health: " + health.ToString ();
 
 		speedBoost = false;
 
@@ -75,6 +78,7 @@ public class PlayerController : MonoBehaviour {
 		//source = GetComponent<AudioSource>();
 		// **
 		gameIsOver = false;
+
 	}
 
 	void FixedUpdate () 
@@ -89,7 +93,7 @@ public class PlayerController : MonoBehaviour {
 
 		Vector3 jumpAction = new Vector3 (0.0f, jump, 0.0f);
 		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-	
+
 		rb.AddForce (movement * speed);
 
 		// Jumper
@@ -106,18 +110,19 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
-		// STOP function
+		// stop function
 		else if (Input.GetKeyDown ("b")) {
 			rb.velocity = Vector3.zero;
 		}
-			
+
 	}
 
 	// **
 
 	// Runs after the scene has been processed
 	void LateUpdate() {
-		if (rb.transform.position.y <= 0 && gameIsOver == false) {
+		// Checking if player has fallen outside of the maze or has lost its health
+		if ((rb.transform.position.y <= 0 && gameIsOver == false) || (health <= 0)) {
 			GameOver ("lost");
 		} else if (Count >= number_of_coins) {
 			GameOver ("won");
@@ -132,11 +137,11 @@ public class PlayerController : MonoBehaviour {
 	void GameOver(string gameStatus){
 		gameIsOver = true;
 		timer = gameTimer;
-		Debug.Log(timer.ToString());
 
 		// Checking if the game has been won of lost
 		if (gameStatus == "won") {
-			gameStatusText.text = "You won!/nYou completed the maze in " + timer.ToString() + "s";
+			gameStatusText.text = "You won!\nYou completed the maze in " + timer.ToString() + "s";
+			score.text = "Your score: " + timer.ToString();
 		} else {
 			gameStatusText.text = "You lost!";
 		}
@@ -180,17 +185,27 @@ public class PlayerController : MonoBehaviour {
 			rb.AddForce (new Vector3 (0.0f, 500, 0.0f));
 		}
 
+		else if (other.gameObject.CompareTag("enemy")) 
+		{
+			if (!gameIsOver) {
+				source = other.gameObject.GetComponent<AudioSource>();
+				source.PlayOneShot(enemyClip, 1F);
+				rb.velocity = Vector3.zero;
+				health--;
+				SetHealth ();
+			}
+		}
+
 	}
 
 	void SetCountText () {
 		//Shows the number of coins that are left to be picked-up
 		countText.text = "Remaining \nCoins: " + (number_of_coins - Count).ToString();
+	}
 
-		//Checking if all the coins have been picked up
-		if (Count >= number_of_coins)
-		{
-			winText.text = "You Win!";
-		}
+	void SetHealth () {
+		healthText.text =  "Health: " + health.ToString();
+
 	}
 
 	void endSpeedBooster () {
@@ -212,7 +227,6 @@ public class PlayerController : MonoBehaviour {
 	void setDifficulty(int difficulty) {
 		if (difficulty == 1) {
 			GameObject[] goArray = GameObject.FindGameObjectsWithTag("bombTrap");
-			Debug.Log(goArray.Length);
 
 			if (goArray.Length > 0) {
 				for (int i = 0; i < goArray.Length; i++) {
