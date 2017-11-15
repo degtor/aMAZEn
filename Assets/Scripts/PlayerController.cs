@@ -220,7 +220,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void SetGameTime () {
-		gameTimer = Time.time;	
+		gameTimer = Time.timeSinceLevelLoad;	
 		displayTime.text = "Time: " + gameTimer.ToString();
 	}
 
