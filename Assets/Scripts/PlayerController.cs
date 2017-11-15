@@ -75,7 +75,6 @@ public class PlayerController : MonoBehaviour {
 		//source = GetComponent<AudioSource>();
 		// **
 		gameIsOver = false;
-		rb.transform
 	}
 
 	void FixedUpdate () 
