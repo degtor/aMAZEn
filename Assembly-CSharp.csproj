@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{0EDB91A9-4702-3350-2DBB-BEF2E7FA49CC}</ProjectGuid>
+    <ProjectGuid>{321E372A-5E62-52B8-E3D5-9BF83663F5BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -52,19 +52,18 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\amusedART\StoneMonster\Script\Animation_Test.cs" />
-     <Compile Include="Assets\Bomb.cs" />
-     <Compile Include="Assets\buttonBallsy.cs" />
-     <Compile Include="Assets\buttonEasy.cs" />
-     <Compile Include="Assets\buttonHard.cs" />
-     <Compile Include="Assets\buttonQuit.cs" />
-     <Compile Include="Assets\DifficultySelect.cs" />
      <Compile Include="Assets\FullTiltBoogie\RotateFlareHolder.cs" />
+     <Compile Include="Assets\Scripts\Bomb.cs" />
+     <Compile Include="Assets\Scripts\buttonBallsy.cs" />
+     <Compile Include="Assets\Scripts\buttonEasy.cs" />
+     <Compile Include="Assets\Scripts\buttonHard.cs" />
+     <Compile Include="Assets\Scripts\buttonQuit.cs" />
      <Compile Include="Assets\Scripts\buttonSpeedy.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CanvasData.cs" />
+     <Compile Include="Assets\Scripts\DifficultySelect.cs" />
      <Compile Include="Assets\Scripts\Flip.cs" />
      <Compile Include="Assets\Scripts\LoadScene.cs" />
-     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerData.cs" />
      <Compile Include="Assets\Scripts\PlayerSelect.cs" />

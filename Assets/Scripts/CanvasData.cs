@@ -7,12 +7,16 @@ public class CanvasData : MonoBehaviour {
 
 	private int chosenPlayerInt;
 	private int chosenDifficultyInt;
+
+	// Allowing the connection with Text objects through the UI
 	public Text playerMenuItemText;
 	public Text difficultyMenuItemText;
+
 	static string[] playerNames = new string[] {
 		"Speedy Ballzales",
 		"Ballzy Jumper"
 	};
+
 	static string[] gameLevels = new string[] {
 		"Easy",
 		"Hard"
@@ -38,6 +42,7 @@ public class CanvasData : MonoBehaviour {
 
 	}
 
+	// Runs at every frame
 	void Update(){
 		loadPlayerPrefs ();
 		playerMenuItemText.text = "Player: " + playerNames [chosenPlayerInt];

@@ -224,7 +224,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1217556
@@ -1339,8 +1339,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 659790498}
   - {fileID: 2079522182}
+  - {fileID: 659790498}
   m_Father: {fileID: 1891152726}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2614,7 +2614,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &430391937
@@ -3484,7 +3484,7 @@ RectTransform:
   - {fileID: 708696061}
   - {fileID: 932845091}
   m_Father: {fileID: 220946077}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3987,7 +3987,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -6252,7 +6252,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1080057815
@@ -11794,7 +11794,7 @@ MonoBehaviour:
   bombClip: {fileID: 8300000, guid: 8a259fb5572884290b0dcb999b20f665, type: 3}
   gameStatusText: {fileID: 708696062}
   score: {fileID: 932845092}
-  gameOverPanel: {fileID: 220946076}
+  gameOverPanel: {fileID: 659790497}
   escapePanel: {fileID: 2079522181}
   enemyObject: {fileID: 715052104}
   enemyClip: {fileID: 8300000, guid: 29180b390af854d1ea9006460050cc15, type: 3}
@@ -12192,7 +12192,7 @@ RectTransform:
   - {fileID: 430391933}
   - {fileID: 1080057811}
   m_Father: {fileID: 220946077}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
