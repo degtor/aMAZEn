@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 	private int speed;
 	private int jump;
 
-	static int number_of_coins = 1;
+	static int number_of_coins = 10;
 
 	// Variables related to player preferences
 	private int player;
@@ -47,6 +47,8 @@ public class PlayerController : MonoBehaviour {
 	public Text gameStatusText;
 	public Text score;
 	public GameObject gameOverPanel;
+	public GameObject escapePanel;
+	public GameObject enemyObject;
 	public AudioClip enemyClip;
 	public int health = 100;
 
@@ -114,6 +116,16 @@ public class PlayerController : MonoBehaviour {
 		else if (Input.GetKeyDown ("b")) {
 			rb.velocity = Vector3.zero;
 		}
+
+		// ESCAPE function
+		else if (Input.GetKeyDown ("escape")) {
+			if (!escapePanel.activeSelf) {
+				escapePanel.SetActive (true);
+			} else {
+				escapePanel.SetActive (false);
+			}
+		}
+
 
 	}
 
@@ -234,6 +246,8 @@ public class PlayerController : MonoBehaviour {
 					goArray[i].GetComponent<BoxCollider> ().enabled = true;
 				}
 			}
+
+			enemyObject.SetActive (true);
 		}
 	}
 
